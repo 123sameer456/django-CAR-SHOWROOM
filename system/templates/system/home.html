@@ -1,0 +1,28 @@
+
+{% extends 'system/navbar.html' %}
+{% load static %}
+{% block style %}
+
+
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    
+    {% endblock style %}
+
+{% block content %}
+
+{% for brand in brand_names %}
+  
+<a href="{% url 'brand_details' brand  %}" style="text-decoration: none;">
+<div class="card" style="width: 18rem;float:left; margin: 10px; border:2px double blue; border-radius: 10%;">
+  <img width="100" height="120" src="{{ brand.brand_image.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ brand }} </h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="" class="btn btn-primary">More Details</a>
+  </div>
+</div>
+</a>
+{% endfor %}
+{% endblock content %}
+
+

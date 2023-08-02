@@ -1,0 +1,29 @@
+{% extends 'system/navbar.html' %}
+{% block heading %}
+<h1>OUR TEAM</h1>
+ <hr>
+      <hr>
+{% endblock heading %}
+{% block content %}
+
+
+      {% for mem in members %}
+       <a href="{% url  'team_member' mem.id   %}" >
+      <div class="card" style="width: 18rem;float:left; margin-left:5px ; border:2px solid black">
+        <img style="width:150 ; height: 200px;" src="{{ mem.image.url }}" alt="not found">
+        <br>
+        <div class="card-body">
+            <span class="card-title"> ID: <b><i> {{ mem.id }} </i></b></span> <br>
+           <span class="card-title"> First Name: <b><i> {{ mem.first_name }} </i></b></span> <br>
+           <span class="card-title"> Last Name:<b></i> {{ mem.last_name }} </i></b></span> <br>
+            </div>
+      </div>
+    </a>
+                                                                                                    
+      {% endfor %} 
+
+
+   
+
+
+{% endblock content %}
